@@ -1,11 +1,11 @@
 import {Component, Type} from '@angular/core'
 //noinspection TypeScriptCheckImport
-import {NguiOverlayManager} from "@ngui/overlay";
+import {Ng2OverlayManager} from "ng2-overlay";
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app.tpl.html'
 })
 export class AppComponent {
-  constructor(public overlayManager: NguiOverlayManager) {}
+  constructor(public overlayManager: Ng2OverlayManager) {}
 }

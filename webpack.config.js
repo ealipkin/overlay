@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    '@ngui/overlay': path.join(__dirname, 'src', 'index.ts')
+    'ng2-overlay': path.join(__dirname, 'src', 'index.ts')
   },
   resolve: {
     extensions: ['', '.ts', '.js', '.json', '.css', '.html']
@@ -13,8 +13,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: "overlay.umd.js",
-    library: ["overlay"],
+    filename: "[name].umd.js",
+    library: ["[name]"],
     libraryTarget: "umd"
   },
   externals: [

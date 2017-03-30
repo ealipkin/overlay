@@ -12,10 +12,10 @@ import { FormsModule }    from "@angular/forms";
 
 import { AppComponent }   from './app.component';
 //noinspection TypeScriptCheckImport
-import { NguiOverlayModule }  from '@ngui/overlay';
+import { Ng2OverlayModule }  from 'ng2-overlay';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, NguiOverlayModule],
+  imports: [BrowserModule, FormsModule, Ng2OverlayModule],
   declarations: [AppComponent],
   bootstrap: [ AppComponent ]
 })

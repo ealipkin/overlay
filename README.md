@@ -1,37 +1,31 @@
-# Angular(2+) Overlay
+# ng2-overlay
 General Solution For Angular2 Overlay Elements
 
-## IMPORTANT NOTICE
-
-After 0.8.0 or higher, `ng2-overlay` has been changed to `@ngui/overlay`. Here are the changes;
-
-* Module `ng2-overlay` is changed to `@ngui/overlay`.
-* Direvtive `ng2-overlay` is changed to `ngui-overlay`.
-* Class name `Ng2Overay` is changed to `NguiOverlay`.
-
-<a href="https://rawgit.com/ng2-ui/overlay/master/app/index.html">
+<a href="https://rawgit.com/ng2-ui/ng2-overlay/master/app/index.html">
   <img src="http://i.imgur.com/0qcxg8X.png" width="50% border="1" />
 </a>
 
 ## Install
 
-1. install overlay
+1. install ng2-overlay
 
-        $ npm install overlay
+        $ npm install ng2-overlay
 
 2. add `map` and `packages` to your `systemjs.config.js`
 
-        map['@ngui/overlay'] = 'node_modules/@ngui/overlay/dist/overlay.umd.js';
 
-3. import NguiOverlayModule to your AppModule
+        map['ng2-overlay'] = 'node_modules/ng2-overlay/dist';
+        packages['ng2-overlay'] = { main: 'ng2-overlay.umd.js', defaultExtension: 'js' }
+
+3. import Ng2OverlayModule to your AppModule
         import { NgModule } from '@angular/core';
         import { FormsModule } from "@angular/forms";
         import { CommonModule  } from '@angular/common';
         import { AppComponent } from './app.component';
-        import { NguiOverlayModule } from '@ngui/overlay';
+        import { Ng2OverlayModule } from 'ng2-overlay';
         
         @NgModule({
-          imports: [CommonModule, FormsModule, NguiOverlayModule],
+          imports: [CommonModule, FormsModule, Ng2OverlayModule],
           declarations: [AppComponent],
           bootstrap: [ AppComponent ]
         })
@@ -46,13 +40,10 @@ For full example, please check out `test` directory to see the example of;
 ## Usage it in your code
  You are ready. use it in your template
 
-        <div id="window-loading" ngui-overlay-of="window">
+        <div id="window-loading" ng2-overlay-of="window">
           Loading...
         </div>
         <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button>
-
-  Now the component generates events when the overlay is open or closed;
-  You can subscribe to these events for some useful logic;
 
 ## **ng2-ui** welcomes new members and contributors
 
@@ -77,14 +68,14 @@ please send me email to `allenhwkim AT gmail.com` with your github id.
 
 
 ## attributes
-  [ngui-overlay], [ngui-overlay-of], [ngui-overlay-position]
+  [ng2-overlay], [ng2-overlay-of], [ng2-overlay-position]
 
-  * ngui-overlay, Display inside overylay center-center positioned
-  * ngui-overlay-of="window", Display window overlay
-  * ngui-overlay-position="VERTICAL HORIZONTAL outside"
+  * ng2-overlay, Display inside overylay center-center positioned
+  * ng2-overlay-of="window", Display window overlay
+  * ng2-overlay-position="VERTICAL HORIZONTAL outside"
      e.g.,   
-     `ngui-overlay-position="center center"` for loading sign  
-     `ngui-overlay-position="top center outside"` for tooltip  
+     `ng2-overlay-position="center center"` for loading sign  
+     `ng2-overlay-position="top center outside"` for tooltip  
 
      * VERTICAL positions: top,  middle, or bottom
      * HORIZONTAL positions: left,  center, or right
