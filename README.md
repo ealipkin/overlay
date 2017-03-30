@@ -51,6 +51,9 @@ For full example, please check out `test` directory to see the example of;
         </div>
         <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button>
 
+  Now the component generates events when the overlay is open or closed;
+  You can subscribe to these events for some useful logic;
+
 ## **ng2-ui** welcomes new members and contributors
 
 This module is only improved and maintained by contributors like you.

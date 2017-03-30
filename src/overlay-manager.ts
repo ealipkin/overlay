@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 
 import {NguiOverlay} from "./overlay";
 
@@ -6,6 +6,9 @@ import {NguiOverlay} from "./overlay";
 export class NguiOverlayManager {
   //list of overlay objects
   static overlays: {[id: string]: NguiOverlay} = {};
+
+  openEvent: EventEmitter<any> = new EventEmitter<any>();
+  closeEvent: EventEmitter<any> = new EventEmitter<any>();
 
   register(overlay: NguiOverlay): void {
     NguiOverlayManager.overlays[overlay.id] = overlay;
@@ -17,6 +20,7 @@ export class NguiOverlayManager {
     if (!overlay.opened) {
       overlay.positionIt(event);
       overlay.opened = true;
+      this.openEvent.emit(arg);
     }
   }
 
@@ -24,6 +28,6 @@ export class NguiOverlayManager {
     let overlay: NguiOverlay = typeof arg === 'string' ? NguiOverlayManager.overlays[arg] : arg;
     overlay.element.style.display = 'none'
     overlay.opened = false;
+    this.closeEvent.emit(arg);
   }
 }
-

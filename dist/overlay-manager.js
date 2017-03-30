@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var NguiOverlayManager = NguiOverlayManager_1 = (function () {
     function NguiOverlayManager() {
+        this.openEvent = new core_1.EventEmitter();
+        this.closeEvent = new core_1.EventEmitter();
     }
     NguiOverlayManager.prototype.register = function (overlay) {
         NguiOverlayManager_1.overlays[overlay.id] = overlay;
@@ -19,12 +21,14 @@ var NguiOverlayManager = NguiOverlayManager_1 = (function () {
         if (!overlay.opened) {
             overlay.positionIt(event);
             overlay.opened = true;
+            this.openEvent.emit(arg);
         }
     };
     NguiOverlayManager.prototype.close = function (arg) {
         var overlay = typeof arg === 'string' ? NguiOverlayManager_1.overlays[arg] : arg;
         overlay.element.style.display = 'none';
         overlay.opened = false;
+        this.closeEvent.emit(arg);
     };
     return NguiOverlayManager;
 }());
