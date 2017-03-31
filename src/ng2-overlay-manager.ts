@@ -27,7 +27,7 @@ export class Ng2OverlayManager {
 
   close(arg: string | Ng2Overlay): void {
     let overlay: Ng2Overlay = typeof arg === 'string' ? Ng2OverlayManager.overlays[arg] : arg;
-    overlay.element.style.display = 'none'
+    overlay.element.style.display = 'none';
     overlay.opened = false;
     this.closeEvent.emit(arg);
   }
